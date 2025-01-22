@@ -5,6 +5,7 @@ import './index.css';
 import App from './App.jsx';
 import ErrorPage from './pages/Error.jsx';
 import Valentines from './pages/Valentines.jsx';
+import Date from './pages/Date.jsx';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Valentines />,
+      },
+      {
+        path: 'date',
+        element: <Date />,
       },
     ]
   }

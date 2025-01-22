@@ -1,27 +1,30 @@
-// import Link from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 import '../App.css'
 
-const Btn = () => {
-
-    function handleClick() {
-    if ()
-    }
+const YesBtn = () => {
     return (
-        <div>
-            <button onClick={handleClick}>Yes</button>
-            <button onClick={handleClick}>No</button>
-        </div>
+        <Link to="/Date">
+            <button>Yes</button>
+        </Link>
     );
 }
 
-function Valentines() {
+const NoBtn = () => {
+    return (
+        <Link to="/Error">
+            <button>No</button>
+        </Link>
+    );
+}
+
+const Valentines = () => {
     return (
         <>
         <h1>Will You Be My Valentines?</h1>
-        <Btn />
+        <YesBtn /> <NoBtn />
         </>
     );
   }
 
-    export default Valentines;
+export default Valentines;
