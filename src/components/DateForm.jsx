@@ -1,28 +1,12 @@
-import { useState } from 'react';
-import Calendar from 'react-calendar';
 
-import '../Calendar.css';
-// import 'react-calendar/dist/Calendar.css';
-
-const DateCalendar = () => {
-    const { date, dateChange } = useState(new Date());
-
-    function onChange(nextDate) {
-        dateChange(nextDate);
+const DateForm = () => {
+    const HandleClick = () => {
+        alert('You clicked me!');
     }
 
     return (
-        <div className='Sample'>
-            <header>
-                <h1>Calendar Test</h1>
-            </header>
-            <div className='Sample-container'>
-                <main className='Sample_container_content'>
-                    <Calendar calendarType='gregory' onChange={onChange} value={date} />
-                </main>
-            </div>
-        </div>
+        <button onClick={HandleClick}>Click me</button>
     );
 }
 
-export default DateCalendar;
+export default DateForm;
