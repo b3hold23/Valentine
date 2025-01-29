@@ -3,7 +3,7 @@ import { DatePicker } from "react-date-picker";
 
 import '../Calendar.css';
 import 'react-date-picker/dist/DatePicker.css';
-// import 'react-calendar/dist/Calendar.css';
+
 
 const DateNight = () => {
     const [dateBtn, startDateBtn] = useState(false);
@@ -43,12 +43,20 @@ export default DateNight;
       <form method="post" onSubmit={handleSubmit}>
         <div>
         <hr />
-        <p>
-          Radio buttons:
+        <header>
+          What would you like to do?
+        </header>
+          <label><input type="radio" name="activityRadio" value="Movies"/> Movies </label>
+          <label><input type="radio" name="activityRadio" value="Aquarium"/> Aquarium </label>
+          <label><input type="radio" name="activityRadio" value="The Leonardo" /> The Leonardo </label>
+          <label><input type="radio" name="activityRadio" value="Zoo" /> The Zoo </label>
+        <hr />
+        <header>
+            Pick a restaurant:
+        </header>
           <label><input type="radio" name="myRadio" value="K-pop Fries" /> K-pop Fries </label>
           <label><input type="radio" name="myRadio" value="Olive Garden"  /> Olive Garden </label>
-          <label><input type="radio" name="myRadio" value="Ramen" /> Ramen</label>
-        </p>
+          <label><input type="radio" name="myRadio" value="Ramen" /> Ramen </label>
         <hr />
             <header>
             Pick a day:

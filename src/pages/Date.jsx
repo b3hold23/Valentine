@@ -11,8 +11,6 @@ const DatePlan = () => {
 
         <h1>Initial wording test</h1>
         <DateNight />
-        
-        
         </>
     )
 }
