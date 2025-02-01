@@ -6,6 +6,7 @@ import App from './App.jsx';
 import ErrorPage from './pages/Error.jsx';
 import Valentines from './pages/Valentines.jsx';
 import Date from './pages/Date.jsx';
+import Results from './pages/Results.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: 'date',
         element: <Date />,
+      },
+      {
+        path: 'results',
+        element: <Results />,
       },
     ]
   }
