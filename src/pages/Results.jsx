@@ -15,5 +15,4 @@ const ResultsPage = () => {
         </div>
     );
 };
-
 export default ResultsPage;

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { DatePicker } from "react-date-picker";
 import { useNavigate } from "react-router-dom";
 
-import '../Calendar.css';
-import 'react-date-picker/dist/DatePicker.css';
+import "../Calendar.css";
+import "react-date-picker/dist/DatePicker.css";
 
 const DateNight = () => {
     const [dateBtn, setDateBtn] = useState(false);
@@ -26,22 +26,18 @@ export default DateNight;
 
 function MyForm() {
     const [date, setDate] = useState(new Date());
-    const navigate = useNavigate(); // Hook for navigation
+    const [step, setStep] = useState(1); 
+    const [activity, setActivity] = useState("");
+    const [restaurant, setRestaurant] = useState("");
+
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
-
-        const form = e.target;
-        const formData = new FormData(form);
-
-        const query = formData.get("query");
-        const query3 = formData.get("query3");
-
-        // Navigate to results page with selected options
         navigate("/results", {
             state: {
-                activity: query,
-                restaurant: query3,
+                activity,
+                restaurant,
                 date: date.toDateString(),
             },
         });
@@ -52,24 +48,75 @@ function MyForm() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <hr />
-                    <header>What would you like to do?</header>
-                    <label><input type="radio" name="query" value="Movies" required /> Movies </label>
-                    <label><input type="radio" name="query" value="Aquarium" /> Aquarium </label>
-                    <label><input type="radio" name="query" value="The Leonardo" /> The Leonardo </label>
-                    <label><input type="radio" name="query" value="Zoo" /> The Zoo </label>
+
+                    {step === 1 && (
+                        <>
+                            <header>What would you like to do?</header>
+                            <label>
+                                <input type="radio" name="query" value="Movies" onChange={(e) => setActivity(e.target.value)} required />
+                                Movies
+                            </label>
+                            <label>
+                                <input type="radio" name="query" value="Aquarium" onChange={(e) => setActivity(e.target.value)} />
+                                Aquarium
+                            </label>
+                            <label>
+                                <input type="radio" name="query" value="The Leonardo" onChange={(e) => setActivity(e.target.value)} />
+                                The Leonardo
+                            </label>
+                            <label>
+                                <input type="radio" name="query" value="Zoo" onChange={(e) => setActivity(e.target.value)} />
+                                The Zoo
+                            </label>
+                            <label>
+                                <input type='radio' name="query" value='Rock Climbing' onChange={(e) => setActivity(e.target.value)} />
+                                Rock Climbing
+                            </label>
+                            <label>
+                                <input type="radio" name="query" value="Float" onChange={(e) => setActivity(e.target.value)} />
+                                Float
+                            </label>
+                        </>
+                    )}
+
+                    {step === 2 && (
+                        <>
+                            <header>Pick a restaurant:</header>
+                            <label>
+                                <input type="radio" name="query3" value="K-pop Fries" onChange={(e) => setRestaurant(e.target.value)} required />
+                                K-pop Fries
+                            </label>
+                            <label>
+                                <input type="radio" name="query3" value="Olive Garden" onChange={(e) => setRestaurant(e.target.value)} />
+                                Olive Garden
+                            </label>
+                            <label>
+                                <input type="radio" name="query3" value="Ramen" onChange={(e) => setRestaurant(e.target.value)} />
+                                Ramen
+                            </label>
+                            <label>
+                                <input type="radio" name="query3" value="Salvadorian" onChange={(e) => setRestaurant(e.target.value)} />
+                                Salvadorian
+                            </label>
+                            <label>
+                                <input type="radio" name="query3" value="Brunch" onChange={(e) => setRestaurant(e.target.value)} />
+                                Brunch
+                            </label>
+                        </>
+                    )}
+
+                    {step === 3 && (
+                        <>
+                            <header>When is the Date:</header>
+                            <DatePicker onChange={setDate} value={date} />
+                        </>
+                    )}
 
                     <hr />
-                    <header>Pick a restaurant:</header>
-                    <label><input type="radio" name="query3" value="K-pop Fries" required /> K-pop Fries </label>
-                    <label><input type="radio" name="query3" value="Olive Garden" /> Olive Garden </label>
-                    <label><input type="radio" name="query3" value="Ramen" /> Ramen </label>
 
-                    <hr />
-                    <header>Pick a day:</header>
-                    <DatePicker onChange={setDate} value={date} />
-
-                    <hr />
-                    <button type="submit">Submit form</button>
+                    {step > 1 && <button type="button" onClick={() => setStep(step - 1)}>Back</button>}
+                    {step < 3 && <button type="button" onClick={() => setStep(step + 1)} disabled={step === 1 && !activity || step === 2 && !restaurant}>Next</button>}
+                    {step === 3 && <button type="submit">Submit form</button>}
                 </div>
             </form>
         </div>
