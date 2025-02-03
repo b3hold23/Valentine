@@ -6,13 +6,23 @@ const ResultsPage = () => {
     const { activity, restaurant, date } = location.state || {};
 
     return (
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
-            <h2>🎉 Your Date Plan 🎉</h2>
-            <p><strong>Activity:</strong> {activity}</p>
-            <p><strong>Restaurant:</strong> {restaurant}</p>
-            <p><strong>Date:</strong> {date}</p>
-            <button onClick={() => navigate("/")}>Plan Another Date</button>
+        <div className="results-container">
+            <h2 className="results-header">💖 Your Perfect Date Night 💖</h2>
+            <div className="results-card">
+                <p className="results-text">
+                    <strong>🌸 Activity: </strong> <span className="highlight">{activity}</span>
+                </p>
+                <p className="results-text">
+                    <strong>🍽️ Restaurant: </strong> <span className="highlight">{restaurant}</span>
+                </p>
+                <p className="results-text">
+                    <strong>📅 Date: </strong> <span className="highlight">{date}</span>
+                </p>
+                <p className="message">✨ Get ready for an unforgettable night! ✨</p>
+            </div>
+            <button className="results-button" onClick={() => navigate("/")}>💌 Plan Another Date</button>
         </div>
     );
 };
+
 export default ResultsPage;

@@ -199,3 +199,82 @@ button:hover, .card:hover {
   align-items: center;
 }
 
+/* Container for the Results Page */
+.results-container {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Dancing Script', cursive, sans-serif;
+  color: #6d214f;
+}
+
+/* Header Styling */
+.results-header {
+  font-size: 2rem;
+  color: #d63447;
+  text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.4);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Card Styling */
+.results-card {
+  background: rgba(255, 240, 245, 0.9);
+  border: 2px solid #ff6b81;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+  padding: 20px;
+  display: inline-block;
+  margin-top: 20px;
+  max-width: 400px;
+  animation: slideIn 1s ease-in-out;
+}
+
+/* Text Styling */
+.results-text {
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+/* Highlight for important info */
+.highlight {
+  color: #ff4d6d;
+  font-weight: bold;
+}
+
+/* Message Styling */
+.message {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #b22222;
+  margin-top: 15px;
+}
+
+/* Button Styling */
+.results-button {
+  background: linear-gradient(to right, #ff6b81, #ff4757);
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.5);
+  margin-top: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.results-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to right, #ff4757, #ff6b81);
+}
+
+/* Adding animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
